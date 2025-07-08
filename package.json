@@ -1,0 +1,45 @@
+{
+  "name": "hpa-bot",
+  "module": "src/bot.ts",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "predev": "bun src/deploy.ts",
+    "dev": "bun --watch src/bot.ts",
+    "prestart": "bun src/deploy.ts",
+    "start": "bun src/bot.ts",
+    "prebuild": "bun run helper/generate-environments.ts && bun run helper/generate-registry.ts",
+    "build": "bun run build:linux-x64-modern && bun run build:linux-x64-baseline && bun run build:linux-arm64 && bun run build:linux-x64-musl-modern && bun run build:linux-x64-musl-baseline && bun run build:linux-arm64-musl && bun run build:darwin-x64-modern && bun run build:darwin-x64-baseline && bun run build:darwin-arm64 && bun run build:windows-x64-modern && bun run build:windows-x64-baseline",
+    "build:linux-x64-modern": "bun build --bytecode --compile --target=bun-linux-x64-modern src/bin.ts --outfile .out/app-linux-x64-modern",
+    "build:linux-x64-baseline": "bun build --bytecode --compile --target=bun-linux-x64-baseline src/bin.ts --outfile .out/app-linux-x64-baseline",
+    "build:linux-arm64": "bun build --bytecode --compile --target=bun-linux-arm64 src/bin.ts --outfile .out/app-linux-arm64",
+    "build:linux-x64-musl-modern": "bun build --bytecode --compile --target=bun-linux-x64-musl-modern src/bin.ts --outfile .out/app-linux-x64-musl-modern",
+    "build:linux-x64-musl-baseline": "bun build --bytecode --compile --target=bun-linux-x64-musl-baseline src/bin.ts --outfile .out/app-linux-x64-musl-baseline",
+    "build:linux-arm64-musl": "bun build --bytecode --compile --target=bun-linux-arm64-musl src/bin.ts --outfile .out/app-linux-arm64-musl",
+    "build:darwin-x64-modern": "bun build --bytecode --compile --target=bun-darwin-x64-modern src/bin.ts --outfile .out/app-darwin-x64-modern",
+    "build:darwin-x64-baseline": "bun build --bytecode --compile --target=bun-darwin-x64-baseline src/bin.ts --outfile .out/app-darwin-x64-baseline",
+    "build:darwin-arm64": "bun build --bytecode --compile --target=bun-darwin-arm64 src/bin.ts --outfile .out/app-darwin-arm64",
+    "build:windows-x64-modern": "bun build --bytecode --compile --target=bun-windows-x64-modern src/bin.ts --outfile .out/app-windows-x64-modern.exe",
+    "build:windows-x64-baseline": "bun build --bytecode --compile --target=bun-windows-x64-baseline src/bin.ts --outfile .out/app-windows-x64-baseline.exe",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.26.0",
+    "@eslint/markdown": "^6.4.0",
+    "@types/bun": "latest",
+    "eslint": "^9.26.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^16.1.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.4.2",
+    "typescript-eslint": "^8.32.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "discord.js": "^14.17.3"
+  }
+}

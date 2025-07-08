@@ -1,0 +1,46 @@
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.pid.lock
+
+# Diagnostic reports
+report.*.json
+
+# Dependency directories
+node_modules/
+bun.lockb
+
+# Output / build
+dist/
+.out/
+
+# Cache
+.cache
+*.tsbuildinfo
+.eslintcache
+
+# Environment variables
+.env
+.env.*.local
+
+# VSCode settings
+.vscode/
+
+# macOS
+.DS_Store
+
+# IDEs
+.idea
+
+# build binaries
+.out/
+
+# Environment variables for build binaries
+env.ts
+
+# static interactions and events mapping
+.generated/
