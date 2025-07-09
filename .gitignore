@@ -44,3 +44,9 @@ env.ts
 
 # static interactions and events mapping
 .generated/
+/src/generated/prisma
+
+# sqlite databases
+*.sqlite3
+*.sqlite
+*.db
